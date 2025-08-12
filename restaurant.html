@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serendib Spice & Grill</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23000"/><circle cx="200" cy="200" r="3" fill="%23FFD700" opacity="0.3"/><circle cx="800" cy="300" r="2" fill="%23FFA500" opacity="0.4"/><circle cx="400" cy="600" r="4" fill="%23FFD700" opacity="0.2"/><circle cx="1000" cy="150" r="2" fill="%23FFA500" opacity="0.5"/><circle cx="600" cy="400" r="3" fill="%23FFD700" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image::before {
+            content: '🍽️';
+            font-size: 15rem;
+            display: block;
+            filter: sepia(1) hue-rotate(35deg) saturate(3);
+        }
+
+        /* Menu Section */
+        .menu {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .menu-category {
+            padding: 10px 25px;
+            background: transparent;
+            border: 2px solid #FFD700;
+            color: #FFD700;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-category.active,
+        .menu-category:hover {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .menu-item h3 {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item .price {
+            color: #FFA500;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .menu-item .portion {
+            color: #ccc;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .contact-info h3 {
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info strong {
+            color: #FFD700;
+        }
+
+        .contact-form {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .contact-form h3 {
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FFD700;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-item {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Serendib Spice & Grill</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Serendib Spice & Grill</h1>
+        <p>Experience Fine Dining at Its Best</p>
+        <a href="#menu" class="cta-button">View Our Menu</a>
+    </div>
+</section>
+
+<style>
+.hero {
+    position: relative;
+    height: 100vh; /* Full screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('restaurantbg.jpg') no-repeat center center/cover;
+    opacity: 0.5; 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+</style>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to Serendib Spice & Grill, where culinary excellence meets elegant dining. For over 15 years, we have been serving our community with the finest dishes crafted from the freshest ingredients.</p>
+                    <br>
+                    <p>Our passionate chefs combine traditional techniques with modern innovation to create unforgettable dining experiences. Whether you're joining us for a romantic dinner, family celebration, or business meeting, we promise exceptional service and extraordinary flavors.</p>
+                    <br>
+                    <p>At Serendib, every meal is a celebration, and every guest is family.</p>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="menu-categories">
+                <button class="menu-category active" onclick="showCategory('appetizers')">Appetizers</button>
+                <button class="menu-category" onclick="showCategory('mains')">Main Courses</button>
+                <button class="menu-category" onclick="showCategory('desserts')">Desserts</button>
+                <button class="menu-category" onclick="showCategory('beverages')">Beverages</button>
+            </div>
+            
+            <div id="appetizers" class="menu-grid category-content">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Golden Bruschetta</h3>
+                            <div class="portion">Serves 2-3 people</div>
+                        </div>
+                        <div class="price">$12.99</div>
+                    </div>
+                    <p>Toasted artisan bread topped with fresh tomatoes, basil, garlic, and premium olive oil</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Crispy Calamari</h3>
+                            <div class="portion">Regular portion - 8oz</div>
+                        </div>
+                        <div class="price">$15.99</div>
+                    </div>
+                    <p>Fresh squid rings lightly breaded and fried, served with marinara sauce and lemon</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Stuffed Mushrooms</h3>
+                            <div class="portion">6 pieces</div>
+                        </div>
+                        <div class="price">$11.99</div>
+                    </div>
+                    <p>Large mushroom caps filled with herbs, cheese, and breadcrumbs, baked to perfection</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Shrimp Cocktail</h3>
+                            <div class="portion">5 jumbo shrimp</div>
+                        </div>
+                        <div class="price">$18.99</div>
+                    </div>
+                    <p>Chilled jumbo shrimp served with cocktail sauce and fresh lemon wedges</p>
+                </div>
+            </div>
+
+            <div id="mains" class="menu-grid category-content" style="display: none;">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Golden Ribeye Steak</h3>
+                            <div class="portion">12oz premium cut</div>
+                        </div>
+                        <div class="price">$34.99</div>
+                    </div>
+                    <p>Prime ribeye grilled to perfection, served with garlic mashed potatoes and seasonal vegetables</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Pan-Seared Salmon</h3>
+                            <div class="portion">8oz Atlantic salmon</div>
+                        </div>
+                        <div class="price">$28.99</div>
+                    </div>
+                    <p>Fresh Atlantic salmon with lemon herb butter, quinoa pilaf, and grilled asparagus</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Lobster Ravioli</h3>
+                            <div class="portion">6 large ravioli</div>
+                        </div>
+                        <div class="price">$31.99</div>
+                    </div>
+                    <p>House-made ravioli filled with lobster and ricotta in a creamy tomato basil sauce</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Chicken Parmesan</h3>
+                            <div class="portion">10oz breast</div>
+                        </div>
+                        <div class="price">$24.99</div>
+                    </div>
+                    <p>Breaded chicken breast topped with marinara and mozzarella, served with pasta</p>
+                </div>
+            </div>
+
+            <div id="desserts" class="menu-grid category-content" style="display: none;">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Golden Cheesecake</h3>
+                            <div class="portion">Individual slice</div>
+                        </div>
+                        <div class="price">$8.99</div>
+                    </div>
+                    <p>Rich New York style cheesecake with graham cracker crust and berry compote</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Chocolate Lava Cake</h3>
+                            <div class="portion">Single serving</div>
+                        </div>
+                        <div class="price">$9.99</div>
+                    </div>
+                    <p>Warm chocolate cake with molten center, served with vanilla ice cream</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Tiramisu</h3>
+                            <div class="portion">Traditional portion</div>
+                        </div>
+                        <div class="price">$7.99</div>
+                    </div>
+                    <p>Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Crème Brûlée</h3>
+                            <div class="portion">4oz ramekin</div>
+                        </div>
+                        <div class="price">$8.99</div>
+                    </div>
+                    <p>Silky vanilla custard topped with caramelized sugar and fresh berries</p>
+                </div>
+            </div>
+
+            <div id="beverages" class="menu-grid category-content" style="display: none;">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>House Wine Selection</h3>
+                            <div class="portion">Glass / Bottle</div>
+                        </div>
+                        <div class="price">$8 / $32</div>
+                    </div>
+                    <p>Carefully curated red and white wines from premium vineyards</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Craft Cocktails</h3>
+                            <div class="portion">Standard pour</div>
+                        </div>
+                        <div class="price">$12.99</div>
+                    </div>
+                    <p>Signature cocktails crafted with premium spirits and fresh ingredients</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Fresh Juices</h3>
+                            <div class="portion">12oz glass</div>
+                        </div>
+                        <div class="price">$4.99</div>
+                    </div>
+                    <p>Freshly squeezed orange, apple, and seasonal fruit juices</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3>Premium Coffee</h3>
+                            <div class="portion">8oz cup</div>
+                        </div>
+                        <div class="price">$3.99</div>
+                    </div>
+                    <p>Locally roasted specialty coffee beans, espresso, cappuccino, and latte</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">🍽️</div>
+                <div class="gallery-item">🥘</div>
+                <div class="gallery-item">🍷</div>
+                <div class="gallery-item">🥂</div>
+                <div class="gallery-item">🍰</div>
+                <div class="gallery-item">🥩</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Restaurant Information</h3>
+                    <p><strong>Address:</strong> 123 Culinary Street, Foodie District, City 12345</p>
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@goldenspoonrestaurant.com</p>
+                    
+                    <h3 style="margin-top: 2rem;">Opening Hours</h3>
+                    <p><strong>Monday - Thursday:</strong> 11:00 AM - 10:00 PM</p>
+                    <p><strong>Friday - Saturday:</strong> 11:00 AM - 11:00 PM</p>
+                    <p><strong>Sunday:</strong> 10:00 AM - 9:00 PM</p>
+                    
+                    <h3 style="margin-top: 2rem;">Special Services</h3>
+                    <p>• Private dining rooms available</p>
+                    <p>• Catering services for events</p>
+                    <p>• Takeout and delivery options</p>
+                    <p>• Reservations recommended</p>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Make a Reservation</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="time" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" placeholder="Number of Guests" min="1" max="20" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Special Requests or Comments" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Make Reservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024  Serendib Spice & Grill. All rights reserved. | Follow us on social media for daily specials!</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Menu category switching
+        function showCategory(category) {
+            // Hide all categories
+            document.querySelectorAll('.category-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.menu-category').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected category
+            document.getElementById(category).style.display = 'grid';
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your reservation request! We will contact you soon to confirm your booking.');
+            this.reset();
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #000 0%, #1a1a1a 100%)';
+            }
+        });
+
+        // Gallery item hover effects
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotate(5deg)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Menu item hover animations
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.borderColor = '#FFD700';
+                this.style.boxShadow = '0 15px 40px rgba(255, 215, 0, 0.3)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.borderColor = 'rgba(255, 215, 0, 0.3)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 1s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
