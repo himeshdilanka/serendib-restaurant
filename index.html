@@ -184,6 +184,8 @@
         .about-text {
             font-size: 1.2rem;
             line-height: 1.8;
+            text-align: justify;        
+            hyphens: auto;
         }
 
         .about-image {
@@ -600,9 +602,15 @@
         <div class="container">
             <h2 class="section-title">About Us</h2>
             <div class="about-content">
-                <div class="about-text" style="font-family: 'Georgia', serif;">
-                    <p>Welcome to Serendib Spice & Grill, where culinary excellence meets elegant dining. For over 15 years, we have been serving our community with the finest dishes crafted from the freshest ingredients.</p>
-                    <br>
+                <div class="about-text" style="font-family: 'Arial', sans-serif;">
+                    <p>Welcome to Serendib Spice & Grill, where the vibrant spirit of Sri Lanka meets the art of modern grilling.
+
+                        Our passion lies in crafting dishes that blend fire, flavor, and tradition. Each plate is kissed by the flame and seasoned with the essence of island spices — cinnamon, clove, cardamom, and chili.
+
+                        From our signature grills to comforting rice and curry, every meal tells a story of warmth, heritage, and home.
+
+                        Whether you dine in or take away, we invite you to experience the true soul of Serendib — one bite at a time.
+                        <br>
                     <p>Our passionate chefs combine traditional techniques with modern innovation to create unforgettable dining experiences. Whether you're joining us for a romantic dinner, family celebration, or business meeting, we promise exceptional service and extraordinary flavors.</p>
                     <br>
                     <p>At Serendib, every meal is a celebration, and every guest is family.</p>
@@ -658,270 +666,144 @@
         </div>
     </section>
 
-      <section id="menu" class="menu">
-        <div class="container">
-            <h2 class="section-title">Our Menu</h2>
-            <div class="menu-categories">
-                <button class="menu-category active" onclick="showCategory('appetizers')">Appetizers</button>
-                <button class="menu-category" onclick="showCategory('mains')">Main Courses</button>
-                <button class="menu-category" onclick="showCategory('desserts')">Desserts</button>
-                <button class="menu-category" onclick="showCategory('beverages')">Beverages</button>
-            </div>
-            
-            <div id="appetizers" class="menu-grid category-content">
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/restaurant5.jpeg" alt="Golden Bruschetta">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Golden Bruschetta</h3>
-                                <div class="portion">Serves 2-3 people</div>
-                            </div>
-                            <div class="price">$12.99</div>
-                        </div>
-                        <p>Toasted artisan bread topped with fresh tomatoes, basil, garlic, and premium olive oil</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/restaurant3.jpeg" alt="Crispy Calamari">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Crispy Calamari</h3>
-                                <div class="portion">Regular portion - 8oz</div>
-                            </div>
-                            <div class="price">$15.99</div>
-                        </div>
-                        <p>Fresh squid rings lightly breaded and fried, served with marinara sauce and lemon</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/restaurant3.jpeg" alt="Stuffed Mushrooms">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Stuffed Mushrooms</h3>
-                                <div class="portion">6 pieces</div>
-                            </div>
-                            <div class="price">$11.99</div>
-                        </div>
-                        <p>Large mushroom caps filled with herbs, cheese, and breadcrumbs, baked to perfection</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/restaurant5.jpeg" alt="Shrimp Cocktail">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Shrimp Cocktail</h3>
-                                <div class="portion">5 jumbo shrimp</div>
-                            </div>
-                            <div class="price">$18.99</div>
-                        </div>
-                        <p>Chilled jumbo shrimp served with cocktail sauce and fresh lemon wedges</p>
-                    </div>
-                </div>
-            </div>
 
-            <div id="mains" class="menu-grid category-content" style="display: none;">
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/ribeye.jpg" alt="Golden Ribeye Steak">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Golden Ribeye Steak</h3>
-                                <div class="portion">12oz premium cut</div>
-                            </div>
-                            <div class="price">$34.99</div>
-                        </div>
-                        <p>Prime ribeye grilled to perfection, served with garlic mashed potatoes and seasonal vegetables</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/salmon.jpg" alt="Pan-Seared Salmon">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Pan-Seared Salmon</h3>
-                                <div class="portion">8oz Atlantic salmon</div>
-                            </div>
-                            <div class="price">$28.99</div>
-                        </div>
-                        <p>Fresh Atlantic salmon with lemon herb butter, quinoa pilaf, and grilled asparagus</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/ravioli.jpg" alt="Lobster Ravioli">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Lobster Ravioli</h3>
-                                <div class="portion">6 large ravioli</div>
-                            </div>
-                            <div class="price">$31.99</div>
-                        </div>
-                        <p>House-made ravioli filled with lobster and ricotta in a creamy tomato basil sauce</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/chicken-parmesan.jpg" alt="Chicken Parmesan">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Chicken Parmesan</h3>
-                                <div class="portion">10oz breast</div>
-                            </div>
-                            <div class="price">$24.99</div>
-                        </div>
-                        <p>Breaded chicken breast topped with marinara and mozzarella, served with pasta</p>
-                    </div>
-                </div>
-            </div>
 
-            <div id="desserts" class="menu-grid category-content" style="display: none;">
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/cheesecake.jpg" alt="Golden Cheesecake">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Golden Cheesecake</h3>
-                                <div class="portion">Individual slice</div>
-                            </div>
-                            <div class="price">$8.99</div>
-                        </div>
-                        <p>Rich New York style cheesecake with graham cracker crust and berry compote</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/lava-cake.jpg" alt="Chocolate Lava Cake">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Chocolate Lava Cake</h3>
-                                <div class="portion">Single serving</div>
-                            </div>
-                            <div class="price">$9.99</div>
-                        </div>
-                        <p>Warm chocolate cake with molten center, served with vanilla ice cream</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/tiramisu.jpg" alt="Tiramisu">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Tiramisu</h3>
-                                <div class="portion">Traditional portion</div>
-                            </div>
-                            <div class="price">$7.99</div>
-                        </div>
-                        <p>Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/creme-brulee.jpg" alt="Crème Brûlée">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Crème Brûlée</h3>
-                                <div class="portion">4oz ramekin</div>
-                            </div>
-                            <div class="price">$8.99</div>
-                        </div>
-                        <p>Silky vanilla custard topped with caramelized sugar and fresh berries</p>
-                    </div>
-                </div>
-            </div>
 
-            <div id="beverages" class="menu-grid category-content" style="display: none;">
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/wine.jpg" alt="House Wine Selection">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>House Wine Selection</h3>
-                                <div class="portion">Glass / Bottle</div>
-                            </div>
-                            <div class="price">$8 / $32</div>
-                        </div>
-                        <p>Carefully curated red and white wines from premium vineyards</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/cocktails.jpg" alt="Craft Cocktails">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Craft Cocktails</h3>
-                                <div class="portion">Standard pour</div>
-                            </div>
-                            <div class="price">$12.99</div>
-                        </div>
-                        <p>Signature cocktails crafted with premium spirits and fresh ingredients</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/juices.jpg" alt="Fresh Juices">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Fresh Juices</h3>
-                                <div class="portion">12oz glass</div>
-                            </div>
-                            <div class="price">$4.99</div>
-                        </div>
-                        <p>Freshly squeezed orange, apple, and seasonal fruit juices</p>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="./img/coffee.jpg" alt="Premium Coffee">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <div>
-                                <h3>Premium Coffee</h3>
-                                <div class="portion">8oz cup</div>
-                            </div>
-                            <div class="price">$3.99</div>
-                        </div>
-                        <p>Locally roasted specialty coffee beans, espresso, cappuccino, and latte</p>
-                    </div>
-                </div>
+<section id="menu" class="menu">
+    <div class="container">
+        <h2 class="section-title">Our Menu</h2>
+
+        <!-- MENU TABS -->
+        <div class="menu-categories">
+            <button class="menu-category active"   onclick="showCategory('family')">Family Pack</button>
+            <button class="menu-category"          onclick="showCategory('salad')">Salad</button>
+            <button class="menu-category"          onclick="showCategory('rice')">Rice</button>
+            <button class="menu-category"          onclick="showCategory('noodles')">Noodles</button>
+            <button class="menu-category"          onclick="showCategory('stew')">Stew</button>
+            <button class="menu-category"          onclick="showCategory('deval')">Deval</button>
+            <button class="menu-category"          onclick="showCategory('chopsuey')">Chop Suey</button>
+            <button class="menu-category"          onclick="showCategory('baits')">Baits / Fried</button>
+        </div>
+
+        <!-- ====================== FAMILY PACK ====================== -->
+        <div id="family" class="menu-grid category-content">
+            <div class="menu-item">
+                <div class="menu-item-header"><div><h3>Seafood Chop Suey Rice</h3><div class="portion">Family size</div></div></div>
+                <p>Seafood mix stir‑fried with vegetables, served over fragrant rice.</p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-header"><div><h3>Chicken Chop Suey Rice</h3><div class="portion">Family size</div></div></div>
+                <p>Tender chicken pieces with crisp vegetables on a bed of rice.</p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-header"><div><h3>Mix Chop Suey Rice</h3><div class="portion">Family size</div></div></div>
+                <p>Combination of meats & seafood with vegetables over rice.</p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-header"><div><h3>Vegetable Chop Suey Rice</h3><div class="portion">Family size</div></div></div>
+                <p>Assorted fresh vegetables stir‑fried and served with rice.</p>
             </div>
         </div>
-    </section>
 
+        <!-- ====================== SALAD ====================== -->
+        <div id="salad" class="menu-grid category-content" style="display:none;">
+            <div class="menu-item">
+                <div class="menu-item-header"><div><h3>Vegetable Salad</h3></div></div>
+                <p>Fresh garden greens with house dressing.</p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-header"><div><h3>Onion Tomato Salad</h3></div></div>
+                <p>Sliced onions, tomatoes, cucumber, and lemon‑herb vinaigrette.</p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-header"><div><h3>Chicken Caesar Salad</h3></div></div>
+                <p>Grilled chicken, romaine, parmesan, croutons, classic Caesar dressing.</p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-header"><div><h3>Coleslaw Salad</h3></div></div>
+                <p>Creamy shredded cabbage & carrot mix.</p>
+            </div>
+        </div>
+
+        <!-- ====================== RICE ====================== -->
+        <div id="rice" class="menu-grid category-content" style="display:none;">
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Chicken Fried Rice</h3></div></div><p>Stir‑fried rice with chicken, egg, and vegetables.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Egg Fried Rice</h3></div></div><p>Classic egg‑fried rice with scallions.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Seafood Fried Rice</h3></div></div><p>Shrimp, squid, and fish with fried rice.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Mix Fried Rice</h3></div></div><p>Chicken, beef, shrimp, and vegetables.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Beef Fried Rice</h3></div></div><p>Tender beef strips in savory fried rice.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Pork Fried Rice</h3></div></div><p>Juicy pork pieces with fried rice.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Vegetable Fried Rice</h3></div></div><p>Assorted vegetables in seasoned rice.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Mongolian Fried Rice</h3></div></div><p>Spicy Mongolian‑style fried rice.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Thai Fried Rice</h3></div></div><p>Thai basil, chili, and aromatic rice.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Seafood Nasguran</h3></div></div><p>Rich seafood rice dish with special spices.</p></div>
+        </div>
+
+        <!-- ====================== NOODLES ====================== -->
+        <div id="noodles" class="menu-grid category-content" style="display:none;">
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Chicken Noodles</h3></div></div><p>Stir‑fried noodles with chicken and vegetables.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Egg Noodles</h3></div></div><p>Soft egg noodles tossed with scallions.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Seafood Noodles</h3></div></div><p>Shrimp, squid, and fish in noodle stir‑fry.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Mix Noodles</h3></div></div><p>Combination of meats and seafood.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Beef Noodles</h3></div></div><p>Savory beef slices with noodles.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Pork Noodles</h3></div></div><p>Tender pork and noodle stir‑fry.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Vegetable Noodles</h3></div></div><p>Fresh vegetables with seasoned noodles.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Mongolian Noodles</h3></div></div><p>Spicy Mongolian‑flavored noodle dish.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Thai Noodles</h3></div></div><p>Pad‑Thai style with peanuts and lime.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Ramen</h3></div></div><p>Classic ramen with rich broth and toppings.</p></div>
+        </div>
+
+        <!-- ====================== STEW ====================== -->
+        <div id="stew" class="menu-grid category-content" style="display:none;">
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Chicken Stew</h3></div></div><p>Slow‑cooked chicken in aromatic gravy.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Fish Stew</h3></div></div><p>Fresh fish simmered with herbs.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Beef Stew</h3></div></div><p>Tender beef chunks in hearty stew.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Pork Stew</h3></div></div><p>Rich pork stew with root vegetables.</p></div>
+        </div>
+
+        <!-- ====================== DEVAL ====================== -->
+        <div id="deval" class="menu-grid category-content" style="display:none;">
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Chicken Deval</h3></div></div><p>Spicy devilled chicken preparation.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Fish Deval</h3></div></div><p>Devilled fish with bold spices.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Pork Deval</h3></div></div><p>Devilled pork, hot and tangy.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Beef Deval</h3></div></div><p>Devilled beef slices.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Prawns Deval</h3></div></div><p>Spicy devilled prawns.</p></div>
+        </div>
+
+        <!-- ====================== CHOP SUEY ====================== -->
+        <div id="chopsuey" class="menu-grid category-content" style="display:none;">
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Seafood Chop Suey</h3></div></div><p>Mixed seafood with crisp vegetables.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Beef Chop Suey</h3></div></div><p>Beef strips stir‑fried with veggies.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Chicken Chop Suey</h3></div></div><p>Chicken and vegetable chop suey.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Pork Chop Suey</h3></div></div><p>Pork with assorted vegetables.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Mix Chop Suey</h3></div></div><p>Combination of meats and seafood.</p></div>
+        </div>
+
+        <!-- ====================== BAITS / FRIED ====================== -->
+        <div id="baits" class="menu-grid category-content" style="display:none;">
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Kocchchi Baits</h3></div></div><p>Traditional spicy bite‑size snacks.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Kocchchi Chicken</h3></div></div><p>Spicy fried chicken pieces.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Kocchchi Pork</h3></div></div><p>Spicy fried pork bites.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Chili Prawns</h3></div></div><p>Chili‑coated fried prawns.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Grill Chicken Breast with Barbeque Sauce</h3></div></div><p>Grilled breast finished with BBQ glaze.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Vegetable Pakora</h3></div></div><p>Crispy vegetable fritters.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Grilled Shiyer Fish</h3></div></div><p>Whole grilled fish with spices.</p></div>
+
+            <!-- Fried section (kept under same tab) -->
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Chicken Fried</h3></div></div><p>Crispy fried chicken pieces.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Fried Fish</h3></div></div><p>Golden fried fish fillets.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Fried Prawns</h3></div></div><p>Lightly battered fried prawns.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Garlic Fried</h3></div></div><p>Garlic‑infused fried assortment.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Beef Fried</h3></div></div><p>Crispy fried beef strips.</p></div>
+            <div class="menu-item"><div class="menu-item-header"><div><h3>Pork Fried</h3></div></div><p>Fried pork bites.</p></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+     
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
